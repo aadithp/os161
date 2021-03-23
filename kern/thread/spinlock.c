@@ -36,6 +36,7 @@
 #include <cpu.h>
 #include <spl.h>
 #include <spinlock.h>
+#include <spinlock.c>
 #include <membar.h>
 #include <current.h>	/* for curcpu */
 

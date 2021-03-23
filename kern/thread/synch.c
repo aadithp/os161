@@ -35,6 +35,7 @@
 #include <types.h>
 #include <lib.h>
 #include <spinlock.h>
+#include <spinlock.c>
 #include <wchan.h>
 #include <thread.h>
 #include <current.h>
@@ -158,7 +159,7 @@ lock_create(const char *name)
 
 	// add stuff here as needed
 
-	return lock;
+	return lk;
 }
 
 void
@@ -200,11 +201,10 @@ lock_release(struct lock *lock)
 bool
 lock_do_i_hold(struct lock *lock)
 {
-	// Write this
 
-	(void)lock;  // suppress warning until code gets written
+	// (void)lock;  // suppress warning until code gets written
 
-	return true; // dummy until code gets written
+	return spinlock_do_i_hold(lock->lk_lock); 
 }
 
 ////////////////////////////////////////////////////////////
