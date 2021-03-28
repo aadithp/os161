@@ -201,10 +201,9 @@ lock_release(struct lock *lock)
 bool
 lock_do_i_hold(struct lock *lock)
 {
-
-	// (void)lock;  // suppress warning until code gets written
-
-	return spinlock_do_i_hold(lock->lk_lock); 
+	KASSERT(lock!=NULL);
+	
+	return lock->holder == curthread; 
 }
 
 ////////////////////////////////////////////////////////////
