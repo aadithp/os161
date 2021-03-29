@@ -35,7 +35,6 @@
 #include <types.h>
 #include <lib.h>
 #include <spinlock.h>
-#include <spinlock.c>
 #include <wchan.h>
 #include <thread.h>
 #include <current.h>
@@ -202,7 +201,7 @@ bool
 lock_do_i_hold(struct lock *lock)
 {
 	KASSERT(lock!=NULL);
-	
+
 	return lock->holder == curthread; 
 }
 
