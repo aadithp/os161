@@ -157,8 +157,11 @@ lock_create(const char *name)
 	HANGMAN_LOCKABLEINIT(&lock->lk_hangman, lock->lk_name);
 
 	// add stuff here as needed
+	lock->holder = NULL;
+	spinlock_init(&lock->lk_lock);
 
-	return lk;
+
+	return lock;
 }
 
 void
